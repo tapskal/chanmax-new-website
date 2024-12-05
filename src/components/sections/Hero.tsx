@@ -2,112 +2,62 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
+import { ArrowRight } from 'lucide-react';
+import CustomButton from '@/components/ui/CustomButton';
 
-export const Hero = () => {
+export default function Hero() {
   return (
-    <div>
-      <section className="relative bg-secondary pt-32 pb-20 overflow-hidden">
-      {/* Background Gradient Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 -left-[10%] w-[40%] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[40%] h-[500px] bg-accent-purple/20 rounded-full blur-[120px]" />
-      </div>
+    <section className="relative min-h-screen w-full overflow-hidden pt-24 pb-12">
+      {/* Main Content Container */}
+      <div className="mx-auto px-4 ">
+        <div className="relative bg-white/5 backdrop-blur-lg rounded-[2rem] p-6 md:px-10 h-[90vh] flex items-center justify-center overflow-hidden border border-white/10">
+          {/* Glass Effect */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+          </div>
 
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-white"
-          >
-            <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight mb-6">
-              Transform Your <span className="text-primary">Digital Vision</span> Into Reality
-            </h1>
-            <p className="text-lg text-gray-300 mb-8">
-              We craft innovative digital solutions that drive business growth and user engagement through cutting-edge web development and strategic marketing.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="gradient">
-                Start Your Journey
-              </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-secondary">
-                View Our Work
-              </Button>
-            </div>
-          </motion.div>
+          {/* Centered Content */}
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-white mb-6 leading-tight">
+              High-Voltage <span className="text-primary lg:text-9xl"> Powerhouse </span> For Business
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                We craft innovative digital solutions that drive business growth 
+                through cutting-edge web development and strategic marketing.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <CustomButton variant="primary" icon={<ArrowRight className="w-4 h-4 text-primary" />}>
+                  Get Started
+                </CustomButton>
+                <CustomButton variant="secondary" icon={<ArrowRight className="w-4 h-4 text-white" />}>
+                  View Our Work
+                </CustomButton>
+              </div>
 
-          {/* Right Hero Image/Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative w-full aspect-square">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent-purple/20 rounded-[30px] animate-pulse" />
-              <img 
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Digital Marketing Strategy"
-                className="relative z-10 w-full h-full object-cover rounded-[30px] shadow-2xl"
-              />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section><section className="relative bg-secondary pt-32 pb-20 overflow-hidden">
-      {/* Background Gradient Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 -left-[10%] w-[40%] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[40%] h-[500px] bg-accent-purple/20 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-white"
-          >
-            <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight mb-6">
-              Transform Your <span className="text-primary">Digital Vision</span> Into Reality
-            </h1>
-            <p className="text-lg text-gray-300 mb-8">
-              We craft innovative digital solutions that drive business growth and user engagement through cutting-edge web development and strategic marketing.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="gradient">
-                Start Your Journey
-              </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-secondary">
-                View Our Work
-              </Button>
-            </div>
-          </motion.div>
-
-          {/* Right Hero Image/Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative w-full aspect-square">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent-purple/20 rounded-[30px] animate-pulse" />
-              <img 
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Digital Marketing Strategy"
-                className="relative z-10 w-full h-full object-cover rounded-[30px] shadow-2xl"
-              />
-            </div>
-          </motion.div>
+              {/* Statistics */}
+              <div className="grid grid-cols-3 gap-8 mt-12">
+                <div>
+                  <div className="text-3xl font-bold text-white mb-2">250+</div>
+                  <div className="text-gray-400">Projects Completed</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-2">98%</div>
+                  <div className="text-gray-400">Client Satisfaction</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-2">13+</div>
+                  <div className="text-gray-400">Years Experience</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
-    </div>
-
-    
   );
-};
+}
