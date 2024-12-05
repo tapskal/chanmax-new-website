@@ -16,10 +16,11 @@ const CustomButton = ({ children, variant = 'primary', icon }: CustomButtonProps
       ? 'bg-primary text-secondary hover:bg-primary-light' 
       : 'bg-white/10 text-white hover:bg-white/20'}`}
   >
-    <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-2">
+    <span className="mr-2">{children}</span>
+    <span className={`w-8 h-8 rounded-full flex items-center justify-center transform -rotate-45
+      ${variant === 'primary' ? 'bg-secondary' : 'bg-white/20'}`}>
       {icon}
     </span>
-    {children}
   </button>
 );
 
