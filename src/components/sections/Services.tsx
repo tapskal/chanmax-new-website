@@ -116,6 +116,7 @@ export default function Services() {
                 Amplify your business with our comprehensive suite of digital services, 
                 designed to power your growth and maximize your market presence.
               </p>
+              <img className='w-3/5' src='/shape-graphic.svg'/>
             </motion.div>
   
             {/* Right Column - Services Grid */}
