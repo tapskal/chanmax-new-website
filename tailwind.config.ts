@@ -39,6 +39,20 @@ const config: Config = {
           '2xl': '1536px',
         },
       },
+      keyframes: {
+        borderFlow: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        },
+        borderFlowVertical: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' }
+        }
+      },
+      animation: {
+        borderFlow: 'borderFlow 3s linear infinite',
+        borderFlowVertical: 'borderFlowVertical 3s linear infinite'
+      }
     },
   },
   plugins: [],

@@ -54,3 +54,5 @@ html {
 .submenu.active {
   @apply opacity-100 translate-y-0;
 }
+
+

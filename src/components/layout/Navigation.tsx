@@ -118,7 +118,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-custom">
+      <header className="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur-custom">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-20">
             {/* Logo and Menu Container */}
@@ -127,7 +127,7 @@ export default function Navigation() {
                 <img 
                   src="/chanmax-favicon.svg" 
                   alt="Chanmax" 
-                  className="h-12"
+                  className="h-10"
                 />
               </Link>
               
@@ -141,8 +141,8 @@ export default function Navigation() {
                       onMouseLeave={() => setActiveMenu(null)}
                       className="relative"
                     >
-                      <button className={`px-4 py-2 rounded-full flex items-center gap-1 text-sm font-medium text-white
-                        ${activeMenu === item.name ? 'bg-white/20' : 'hover:bg-white/20; text-red'}`}>
+                      <button className={`px-4 py-2 rounded-full flex items-center gap-1 text-base font-medium text-white
+                        ${activeMenu === item.name ? 'bg-white/10' : 'hover:bg-white/10'}`}>
                         {item.name}
                       </button>
                       
