@@ -127,7 +127,7 @@ export default function Navigation() {
                 <img 
                   src="/chanmax-favicon.svg" 
                   alt="Chanmax" 
-                  className="h-10"
+                  className="h-12"
                 />
               </Link>
               
