@@ -237,7 +237,7 @@ export default function Navigation() {
                   <div key={item.name} className="py-2">
                     <button
                       onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
-                      className="w-full text-left px-4 py-2 text-3xl font-medium text-white"
+                      className="w-full text-left px-4 py-2 text-2xl font-medium text-white"
                     >
                       {item.name}
                     </button>
