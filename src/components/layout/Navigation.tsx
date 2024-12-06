@@ -237,7 +237,7 @@ export default function Navigation() {
                   <div key={item.name} className="py-2">
                     <button
                       onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
-                      className="w-full text-left px-4 py-2 text-lg font-medium text-white"
+                      className="w-full text-left px-4 py-2 text-4xl font-medium text-white"
                     >
                       {item.name}
                     </button>
@@ -272,14 +272,14 @@ export default function Navigation() {
 
               {/* Mobile Menu Bottom Buttons */}
               <div className="space-y-3 mt-6">
-                <button className="w-full px-6 py-3 rounded-full bg-white/10 text-white text-center">
-                  Talk to Us
-                </button>
-                <button className="w-full px-6 py-3 rounded-full bg-primary text-secondary text-center">
-                  Get a Quote
-                </button>
-              </div>
-            </div>
+          <button className="w-full px-6 py-3 rounded-full bg-white/10 text-white text-center">
+            Talk to Us
+          </button>
+          <button className="w-full px-6 py-3 rounded-full bg-primary text-secondary text-center">
+            Get a Quote
+          </button>
+        </div>
+      </div>
           </motion.div>
         )}
       </AnimatePresence>
