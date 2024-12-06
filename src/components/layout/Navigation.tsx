@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
 import CustomButton from '@/components/ui/CustomButton';
+import Image from 'next/image';
 
 const navItems = [
   {
@@ -124,11 +125,14 @@ export default function Navigation() {
             {/* Logo and Menu Container */}
             <div className="flex items-center gap-8">
               <Link href="/" className="flex-shrink-0">
-                <img 
-                  src="/chanmax-favicon.svg" 
-                  alt="Chanmax" 
-                  className="h-12"
-                />
+              <Image 
+  src="/chanmax-logo.svg" 
+  alt="Chanmax" 
+  width={200}
+  height={74}
+  className="h-8 w-auto"
+  priority
+/>
               </Link>
               
               {/* Main Menu */}

@@ -28,7 +28,7 @@ const projects = [
     }
   },
   {
-    title: "Social Chennel Impact Story",
+    title: "Social Channel Impact Story",
     category: "Social Media",
     description: "Comprehensive social strategy that boosted brand engagement and reach.",
     image: "/pexels-photo-7007188.webp",
