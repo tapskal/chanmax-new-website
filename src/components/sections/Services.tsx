@@ -92,16 +92,23 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
 
 export default function Services() {
     return (
-      <section className="relative py-32 bg-[#0A0A0A] overflow-hidden">
+      <section className="relative py-16 md:py-24 lg:py-32 bg-[#0A0A0A] overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Left Column - Title Section */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="sticky top-32"
+              className="lg:sticky lg:top-32 mb-8 lg:mb-0 relative"
             >
+              {/* Decorative Elements - Only visible on larger screens */}
+              <div className="absolute -z-10 hidden lg:block">
+                <div className="absolute top-32 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+                <div className="absolute top-48 -left-16 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
+                <div className="absolute top-0 -left-4 w-px h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+              </div>
+
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
                 Our Digital <span className="text-primary">Power Tools</span>
               </h2>
@@ -109,17 +116,10 @@ export default function Services() {
                 Amplify your business with our comprehensive suite of digital services, 
                 designed to power your growth and maximize your market presence.
               </p>
-              
-              <div className="absolute top-32 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
-              <div className="absolute top-48 -left-16 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
-              
-              <div className="absolute top-0 -left-4 w-px h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
-            
-
             </motion.div>
   
             {/* Right Column - Services Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {services.map((service, index) => (
                 <ServiceCard key={service.title} service={service} index={index} />
               ))}
