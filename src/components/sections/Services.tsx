@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Code, BarChart, Share2, Search } from 'lucide-react';
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const services = [
   {
@@ -116,7 +117,13 @@ export default function Services() {
                 Amplify your business with our comprehensive suite of digital services, 
                 designed to power your growth and maximize your market presence.
               </p>
-              <img className='w-3/5' src='/shape-graphic.svg'/>
+              
+              <Image
+        src="/shape-graphic.svg"
+        alt="graphic shape"
+        width={400}
+        height={300}
+      />
             </motion.div>
   
             {/* Right Column - Services Grid */}
