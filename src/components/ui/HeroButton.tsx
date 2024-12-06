@@ -17,9 +17,8 @@ const HeroButton = ({ children, variant = 'primary', icon }: HeroButtonProps) =>
       : 'bg-white text-black hover:bg-white/90'}`}
   >
     <span className="mr-2">{children}</span>
-    <span className={`w-8 h-8 rounded-full flex items-center justify-center transform -rotate-45 ${variant === 'primary' 
-      ? ' bg-black' 
-      : 'bg-black'}` }>
+    <span className={`w-8 h-8 rounded-full flex items-center justify-center transform -rotate-45
+      ${variant === 'primary' ? 'bg-black text-primary' : 'bg-black/90 text-white'}`}>
       {icon}
     </span>
   </button>
