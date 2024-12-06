@@ -23,8 +23,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-white mb-6 leading-tight">
-              High-Voltage <span className="text-primary lg:text-9xl"> Powerhouse </span> For Business
+               <h3 className='text-6xl font-thin'>High-Voltage</h3>
+              <h1 className="text-4xl md:text-6xl lg:text-9xl font-extrabold text-white mb-6 leading-tight">
+              <span className="text-primary"> Powerhouse </span> For Business
               </h1>
               <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 We craft innovative digital solutions that drive business growth 
