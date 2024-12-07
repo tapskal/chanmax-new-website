@@ -114,12 +114,10 @@ function PortfolioCard({ project, index }: { project: typeof projects[0], index:
 export default function Portfolio() {
   return (
     <section className="mx-auto px-4">
-        <div className="relative containerpy-16 md:py-24 lg:py-32 rounded-[1.2rem]  bg-white/5 backdrop-blur-lg border border-white/5">
+        <div className="relative containerpy-16 md:py-24 py-10 lg:py-32 rounded-[1.2rem]  bg-white/5 backdrop-blur-lg border border-white/5">
         
       <div className="container mx-auto px-4 md:px-6">
-      <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br rounded-[1.2rem] from-green-500/20 via-transparent to-purple-500/20" />
-          </div>
+        
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

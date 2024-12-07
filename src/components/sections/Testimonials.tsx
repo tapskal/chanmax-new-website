@@ -11,7 +11,7 @@ const testimonials = [
     company: "SupraKleen",
     rating: 5,
     content: "Chanmax Solutions stood out with their excellent communication and timely project completion. They not only delivered amazing results but also demonstrated a commitment to going above and beyond.",
-    image: "/api/placeholder/64/64",
+    image: "/pexels-photo-29652432.webp",
   },
   {
     name: "Muhammed Fasal",
@@ -19,7 +19,7 @@ const testimonials = [
     company: "Kodakit Media",
     rating: 5,
     content: "Their ability to understand our business goals and convert them into effective digital solutions was impressive. The team showed great ownership and kept us informed at every stage.",
-    image: "/api/placeholder/64/64",
+    image: "/pexels-photo-29652432.webp",
   },
   {
     name: "Ajmal",
@@ -27,7 +27,7 @@ const testimonials = [
     company: "Adhugo",
     rating: 5,
     content: "They have consistently provided great digital marketing solutions with measurable results. Their proactive approach and dedication to delivering quality work is commendable.",
-    image: "/api/placeholder/64/64",
+    image: "/pexels-photo-29652432.webp",
   }
 ];
 
@@ -88,7 +88,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center mb-12 md:mb-20"
+          className="max-w-3xl mx-auto text-center mb-6 md:mb-12"
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6">
             Client <span className="text-primary">Success</span> Stories
@@ -133,7 +133,7 @@ export default function Testimonials() {
 
         {/* Testimonials Carousel */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="relative min-h-[500px] md:min-h-[400px]">
+          <div className="relative min-h-[380px] md:min-h-[400px]">
             <AnimatePresence mode="wait">
               {testimonials.map((testimonial, index) => (
                 index === activeIndex && (
@@ -153,7 +153,7 @@ export default function Testimonials() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center gap-3 md:gap-4 mt-8 md:mt-12">
+          <div className="flex justify-center gap-3 md:gap-4 mt-2 md:mt-2">
             <button
               onClick={handlePrev}
               className="p-3 md:p-4 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"

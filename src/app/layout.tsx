@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
   title: 'Chanmax',
@@ -19,6 +20,7 @@ export default function RootLayout({
         <main>
           {children}
         </main>
+        <Footer/>
       </body>
     </html>
   )
