@@ -126,11 +126,11 @@ export default function Navigation() {
             <div className="flex items-center gap-8">
               <Link href="/" className="flex-shrink-0">
               <Image 
-  src="/chanmax-logo.svg" 
+  src="/chanmax-favicon.svg" 
   alt="Chanmax" 
   width={200}
-  height={74}
-  className="h-8 w-auto"
+  height={200}
+  className="h-12 w-auto"
   priority
 />
               </Link>
