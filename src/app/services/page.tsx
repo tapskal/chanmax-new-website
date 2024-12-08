@@ -1,30 +1,43 @@
 // src/app/services/page.tsx
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Code, BarChart, Share2, Search, TrendingUp, Users, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Code, BarChart, Share2, Search, Zap, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 
-// Data structure for statistics
-const stats = [
-  { label: 'Projects Delivered', value: '500+' },
-  { label: 'Success Rate', value: '98%' },
-  { label: 'Client Growth', value: '150%' }
-];
+const backgroundGradients = {
+  'web-development': {
+    first: "bg-blue-500/20",
+    second: "bg-indigo-500/20"
+  },
+  'performance-marketing': {
+    first: "bg-emerald-500/20",
+    second: "bg-teal-500/20"
+  },
+  'social-media': {
+    first: "bg-violet-500/20",
+    second: "bg-fuchsia-500/20"
+  },
+  'search-engine-optimization': {
+    first: "bg-rose-500/20",
+    second: "bg-orange-500/20"
+  }
+};
 
 const services = [
   {
-    id: 'web-dev',
+    id: 'web-development',
     title: "Web Development",
     subtitle: "High-Performance Digital Solutions",
     description: "Transform your digital presence with lightning-fast, scalable web solutions that drive growth and engage users.",
     icon: <Code className="w-8 h-8" />,
+    image: "https://images.pexels.com/photos/3182774/pexels-photo-3182774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     stats: [
       { label: 'Average Speed Increase', value: '300%' },
       { label: 'Conversion Rate', value: '+75%' }
     ],
-    gradient: "from-blue-500/20 via-primary/10 to-purple-500/20",
     features: [
       'Custom Web Applications',
       'E-commerce Solutions',
@@ -33,34 +46,70 @@ const services = [
     ]
   },
   {
-    id: 'performance',
+    id: 'performance-marketing',
     title: "Performance Marketing",
     subtitle: "Data-Driven Growth Engine",
     description: "Supercharge your marketing with data-driven strategies that maximize ROI and accelerate business growth.",
     icon: <BarChart className="w-8 h-8" />,
+    image: "https://images.pexels.com/photos/7681094/pexels-photo-7681094.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     stats: [
       { label: 'Average ROI', value: '250%' },
       { label: 'Lead Generation', value: '+180%' }
     ],
-    gradient: "from-primary/20 via-orange-500/10 to-red-500/20",
     features: [
       'PPC Campaigns',
       'Conversion Optimization',
       'Marketing Automation',
       'Performance Analytics'
     ]
+  },
+  {
+    id: 'social-media',
+    title: "Social Media Marketing",
+    subtitle: "Engage & Amplify",
+    description: "Build meaningful connections and drive engagement through strategic social media management and content creation.",
+    icon: <Share2 className="w-8 h-8" />,
+    image: "https://images.pexels.com/photos/3401403/pexels-photo-3401403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    stats: [
+      { label: 'Engagement Rate', value: '400%' },
+      { label: 'Brand Awareness', value: '+200%' }
+    ],
+    features: [
+      'Content Strategy',
+      'Community Management',
+      'Social Advertising',
+      'Influencer Marketing'
+    ]
+  },
+  {
+    id: 'search-engine-optimization',
+    title: "Search Engine Optimization",
+    subtitle: "Visibility Powerhouse",
+    description: "Dominate search rankings and drive organic traffic through strategic SEO optimization and content enhancement.",
+    icon: <Search className="w-8 h-8" />,
+    image: "https://images.pexels.com/photos/1447418/pexels-photo-1447418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    stats: [
+      { label: 'Ranking Improvement', value: '+85%' },
+      { label: 'Organic Traffic', value: '+230%' }
+    ],
+    features: [
+      'Technical SEO',
+      'Content Optimization',
+      'Link Building',
+      'Local SEO'
+    ]
   }
-  // Add other services...
 ];
 
 const ServiceSection = ({ service, index }: { service: typeof services[0], index: number }) => {
   const isEven = index % 2 === 0;
   
   return (
-    <div className="relative min-h-screen flex items-center py-20">
-      {/* Background Gradient */}
+    <div className="relative min-h-screen w-full pt-20 pb-20">
+      {/* Background Gradients */}
       <div className="absolute inset-0">
-        <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10`} />
+        <div className={`absolute top-1/4 left-1/4 w-96 h-96 ${backgroundGradients[service.id].first} rounded-full blur-3xl opacity-50`} />
+        <div className={`absolute bottom-1/4 right-1/4 w-96 h-96 ${backgroundGradients[service.id].second} rounded-full blur-3xl opacity-50`} />
       </div>
 
       <div className="container mx-auto px-4">
@@ -69,7 +118,7 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
           <motion.div
             initial={{ opacity: 0, x: isEven ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
             {/* Service Icon with Effect */}
@@ -94,6 +143,7 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
                   key={feature}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   className="flex items-center gap-3"
                 >
@@ -104,12 +154,13 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
             </div>
 
             {/* Service Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {service.stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.1 }}
                   className="bg-white/5 rounded-2xl p-4 backdrop-blur-sm border border-white/10"
                 >
@@ -118,19 +169,42 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
                 </motion.div>
               ))}
             </div>
+
+            {/* Learn More Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <Link 
+                href={`/services/${service.id}`}
+                className="group inline-flex items-center gap-2 text-primary hover:text-primary-light transition-all duration-300"
+              >
+                <span className="text-lg font-medium">Learn More</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </motion.div>
           </motion.div>
 
-          {/* Visual Side - Statistics/Charts/Doodles */}
+          {/* Visual Side */}
           <motion.div
             initial={{ opacity: 0, x: isEven ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* Implement dynamic visuals based on service type */}
-            <div className="aspect-square relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
-              {/* Add service-specific visualizations here */}
+            <div className="aspect-square relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === 0}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
@@ -141,10 +215,10 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
 
 export default function ServicesPage() {
   return (
-    <main className="bg-[#0A0A0A]">
+    <main className="bg-[#0A0A0A] relative">
       <PageHeader
         title={<>Digital <span className="text-primary">Power</span> Solutions</>}
-        subtitle="Supercharge your business with our high-voltage digital services"
+        subtitle="Supercharge your business with our comprehensive suite of digital services, engineered to maximize your market presence and drive exceptional growth."
       />
       
       {services.map((service, index) => (
