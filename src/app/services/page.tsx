@@ -134,11 +134,11 @@ const ServiceSection = ({ service, index }: { service: Service; index: number })
         <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start ${isEven ? '' : 'lg:flex-row-reverse'}`}>
           {/* Content Side */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+  initial={{ opacity: 0, y: 50 }}  // Changed from x to y
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+>
             {/* Service Icon with Effect */}
             <div className="inline-flex mb-6">
               <div className="relative">
@@ -158,13 +158,12 @@ const ServiceSection = ({ service, index }: { service: Service; index: number })
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {service.features.map((feature, i) => (
                 <motion.div
-                  key={feature}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-3"
-                >
+  initial={{ opacity: 0, y: 50 }}  // Changed from x to y
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="flex items-center gap-3"
+>
                   <Zap className="w-5 h-5 text-primary" />
                   <span className="text-gray-300">{feature}</span>
                 </motion.div>
@@ -207,12 +206,12 @@ const ServiceSection = ({ service, index }: { service: Service; index: number })
 
           {/* Visual Side */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
+  initial={{ opacity: 0, y: 50 }}  // Changed from x to y
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="relative"
+>
             <div className="aspect-square relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
               <Image
                 src={service.image}

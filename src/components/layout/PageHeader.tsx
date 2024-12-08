@@ -40,7 +40,7 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[60vh] md:min-h-[80vh] lg:h-[calc(100vh+80px)] flex items-center justify-center bg-[#0A0A0A] overflow-hidden"
+      className="relative min-h-[80vh] md:min-h-[80vh] lg:h-[calc(100vh+80px)] flex items-center justify-center bg-[#0A0A0A] overflow-hidden"
     >
       {/* Background Effect */}
       <div className="absolute inset-0">
@@ -69,7 +69,7 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-6 md:mb-8">
+            <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-6 md:mb-8">
               {title}
             </h1>
           </motion.div>
