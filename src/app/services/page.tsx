@@ -7,7 +7,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 
-const backgroundGradients = {
+type ServiceId = 'web-development' | 'performance-marketing' | 'social-media' | 'search-engine-optimization';
+
+interface ServiceStats {
+  label: string;
+  value: string;
+}
+
+interface Service {
+  id: ServiceId;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: JSX.Element;
+  image: string;
+  stats: ServiceStats[];
+  features: string[];
+}
+
+const backgroundGradients: Record<ServiceId, { first: string; second: string }> = {
   'web-development': {
     first: "bg-blue-500/20",
     second: "bg-indigo-500/20"
@@ -26,7 +44,7 @@ const backgroundGradients = {
   }
 };
 
-const services = [
+const services: Service[] = [
   {
     id: 'web-development',
     title: "Web Development",
@@ -101,24 +119,24 @@ const services = [
   }
 ];
 
-const ServiceSection = ({ service, index }: { service: typeof services[0], index: number }) => {
+const ServiceSection = ({ service, index }: { service: Service; index: number }) => {
   const isEven = index % 2 === 0;
   
   return (
-    <div className="relative min-h-screen w-full pt-20 pb-20">
+    <section className="relative w-full py-20">
       {/* Background Gradients */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <div className={`absolute top-1/4 left-1/4 w-96 h-96 ${backgroundGradients[service.id].first} rounded-full blur-3xl opacity-50`} />
         <div className={`absolute bottom-1/4 right-1/4 w-96 h-96 ${backgroundGradients[service.id].second} rounded-full blur-3xl opacity-50`} />
       </div>
 
       <div className="container mx-auto px-4">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+        <div className={`grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start ${isEven ? '' : 'lg:flex-row-reverse'}`}>
           {/* Content Side */}
           <motion.div
             initial={{ opacity: 0, x: isEven ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
             {/* Service Icon with Effect */}
@@ -132,12 +150,12 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
             </div>
 
             {/* Title and Description */}
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{service.subtitle}</h3>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{service.title}</h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl">{service.description}</p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">{service.subtitle}</h3>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">{service.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-xl">{service.description}</p>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {service.features.map((feature, i) => (
                 <motion.div
                   key={feature}
@@ -179,7 +197,7 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
             >
               <Link 
                 href={`/services/${service.id}`}
-                className="group inline-flex items-center gap-2 text-primary hover:text-primary-light transition-all duration-300"
+                className="group inline-flex items-center gap-2 text-primary hover:text-primary-light transition-all duration-300 py-2"
               >
                 <span className="text-lg font-medium">Learn More</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -191,7 +209,7 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
           <motion.div
             initial={{ opacity: 0, x: isEven ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="relative"
           >
@@ -209,7 +227,7 @@ const ServiceSection = ({ service, index }: { service: typeof services[0], index
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
