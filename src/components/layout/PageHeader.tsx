@@ -43,14 +43,14 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
       className="relative min-h-[80vh] md:min-h-[80vh] lg:h-[calc(100vh+80px)] flex items-center justify-center bg-[#0A0A0A] overflow-hidden"
     >
       {/* Background Effect */}
-      <div className="absolute inset-0">
+      {/* <div className="absolute inset-0">
         <div 
           className="absolute inset-0 opacity-30"
           style={{
             background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,208,0,0.15), transparent 50%)'
           }}
         />
-      </div>
+      </div> */}
 
       {/* Content */}
       <div className="container mx-auto px-4 py-20 md:py-24">

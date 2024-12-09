@@ -107,7 +107,7 @@ export default function Services() {
               <div className="absolute -z-10 hidden lg:block">
                 <div className="absolute top-32 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
                 <div className="absolute top-48 -left-16 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
-                <div className="absolute top-0 -left-4 w-px h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+                {/* <div className="absolute top-0 -left-4 w-px h-32 bg-gradient-to-b from-transparent via-primary/50 to-transparent" /> */}
               </div>
 
               <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
@@ -118,12 +118,12 @@ export default function Services() {
                 designed to power your growth and maximize your market presence.
               </p>
               
-              <Image
+              {/* <Image
         src="/shape-graphic.svg"
         alt="graphic shape"
         width={400}
         height={300}
-      />
+      /> */}
             </motion.div>
   
             {/* Right Column - Services Grid */}
