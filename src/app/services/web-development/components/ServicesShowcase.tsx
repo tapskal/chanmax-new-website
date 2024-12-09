@@ -1,62 +1,64 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Zap, ArrowRight } from 'lucide-react';
+import { useRef, useEffect } from 'react';
 
 const services = [
   {
     title: "Custom Web Development",
-    description: "From dynamic web applications to corporate platforms, we craft custom solutions that perfectly align with your business objectives.",
+    description: "We craft tailored web solutions that perfectly align with your business objectives and user needs. Build scalable, high-performance applications that drive growth and deliver exceptional user experiences.",
     image: "https://images.pexels.com/photos/3182834/pexels-photo-3182834.jpeg",
-    benefits: [
-      "Performance-First Approach",
-      "Scalable Architecture",
-      "Modern Tech Stack",
-      "Custom Functionality"
-    ],
-    metrics: {
-      value: "300%",
-      label: "Performance Boost"
-    }
   },
   {
     title: "E-commerce Solutions",
-    description: "Build powerful online stores that drive sales and deliver exceptional shopping experiences to your customers.",
+    description: "Build powerful online stores that drive sales and deliver exceptional shopping experiences. Seamless integration with advanced features for modern commerce, from secure payments to inventory management.",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-    benefits: [
-      "Secure Payments",
-      "Inventory Management",
-      "Mobile-First Design",
-      "Analytics Dashboard"
-    ],
-    metrics: {
-      value: "200%",
-      label: "Sales Increase"
-    }
   },
   {
-    title: "Progressive Web Apps",
-    description: "Transform your web presence with next-generation applications that combine the best of web and mobile experiences.",
-    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
-    benefits: [
-      "Offline Support",
-      "App-Like Experience",
-      "Fast Performance",
-      "Cross-Platform"
-    ],
-    metrics: {
-      value: "85%",
-      label: "User Engagement"
-    }
+    title: "CMS Development",
+    description: "Expert development using leading content management systems like WordPress, Shopify, and Webflow. Create powerful, customizable websites that are easy to manage and scale with your business needs.",
+    image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
   }
 ];
 
 export default function ServicesShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const containers = document.querySelectorAll('.service-card');
+    
+    containers.forEach(container => {
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = container.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        container.style.setProperty('--mouse-x', `${x}%`);
+        container.style.setProperty('--mouse-y', `${y}%`);
+      };
+
+      container.addEventListener('mousemove', handleMouseMove);
+      return () => container.removeEventListener('mousemove', handleMouseMove);
+    });
+  }, []);
+
   return (
-    <section className="relative py-32">
-      {/* Background gradient */}
+    <section className="relative py-32 overflow-hidden">
+      {/* Enhanced section separator */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
+        {/* Main gradient line */}
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        
+        {/* Soft glow effect */}
+        <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
+        
+        {/* Very subtle spread */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
+      </div>
+      {/* Background Gradients */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-primary/5 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] opacity-30" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -78,65 +80,53 @@ export default function ServicesShowcase() {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="space-y-32">
+        {/* Services Stack */}
+        <div className="max-w-5xl mx-auto space-y-12">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className={`flex flex-col lg:flex-row gap-12 items-center ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              transition={{ 
+                duration: 0.7,
+                ease: [0.23, 1, 0.32, 1]
+              }}
+              className="service-card relative"
+              ref={containerRef}
             >
-              {/* Image Side */}
-              <div className="w-full lg:w-1/2">
-                <div className="relative group">
-                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
-                    <img 
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-                  </div>
-                  
-                  {/* Metrics Badge */}
-                  <div className="absolute -bottom-6 left-6 bg-primary/90 backdrop-blur-sm px-6 py-3 rounded-full">
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-black">{service.metrics.value}</span>
-                      <span className="text-sm text-black/70">{service.metrics.label}</span>
+              <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden p-6 md:p-8">
+                <div className="flex flex-col md:grid md:grid-cols-[1.2fr,1fr] gap-8 items-center">
+                  {/* Image - Now at top on mobile */}
+                  <div className="md:order-2 w-full">
+                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
+                      <img 
+                        src={service.image}
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
                     </div>
                   </div>
+
+                  {/* Content - Below image on mobile */}
+                  <div className="md:order-1 relative z-10">
+                    <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
+                      {service.title}
+                    </h4>
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* Mouse following gradient */}
+                  <div 
+                    className="absolute inset-0 opacity-0 transition-opacity duration-300"
+                    style={{
+                      background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,208,0,0.15), transparent 50%)'
+                    }}
+                  />
                 </div>
-              </div>
-
-              {/* Content Side */}
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{service.title}</h3>
-                <p className="text-lg text-gray-300 mb-8">{service.description}</p>
-                
-                {/* Benefits List */}
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  {service.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-center gap-3">
-                      <Zap className="w-5 h-5 text-primary" />
-                      <span className="text-gray-300">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Learn More Link */}
-                <motion.a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group"
-                  whileHover={{ x: 10 }}
-                >
-                  <span className="text-lg font-medium">Learn More</span>
-                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-                </motion.a>
               </div>
             </motion.div>
           ))}

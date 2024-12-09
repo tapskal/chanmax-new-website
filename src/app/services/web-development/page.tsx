@@ -3,7 +3,6 @@
 import PageHeader from '@/components/layout/PageHeader';
 import Features from './components/Features';
 import ServicesShowcase from './components/ServicesShowcase';
-import ProcessTimeline from './components/ProcessTimeline';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 
@@ -18,7 +17,6 @@ export default function WebDevelopmentPage() {
       <div className="space-y-20 md:space-y-0">
         <Features />
         <ServicesShowcase />
-        <ProcessTimeline />
         <FAQ />
         <CTA />
       </div>
