@@ -6,9 +6,13 @@ import CustomButton from '@/components/ui/CustomButton';
 
 export default function CTA() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-black to-[#0A0A0A]">
-      {/* Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative py-32 overflow-hidden ">
+      {/* Background glows - fixed positioning to avoid cropping */}
+      <div className="fixed inset-0">
+        <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+
+        {/* Animated gradient overlay */}
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -19,14 +23,14 @@ export default function CTA() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="absolute top-0 left-0 w-full h-full"
+          className="absolute inset-0"
           style={{
             background: 'radial-gradient(circle at 50% 50%, rgba(255,208,0,0.15), transparent 70%)',
           }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

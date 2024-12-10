@@ -1,49 +1,41 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import Image from 'next/image'; // Add this for proper image handling
 
 const services = [
   {
-    title: "Custom Web Development",
+    title: { first: "Custom", second: "Web Development" },
     description: "We craft tailored web solutions that perfectly align with your business objectives and user needs. Build scalable, high-performance applications that drive growth and deliver exceptional user experiences.",
     image: "https://images.pexels.com/photos/3182834/pexels-photo-3182834.jpeg",
+    gradients: [
+      "absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]",
+      "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]"
+    ],
   },
   {
-    title: "E-commerce Solutions",
+    title: { first: "E-commerce", second: "Solutions" },
     description: "Build powerful online stores that drive sales and deliver exceptional shopping experiences. Seamless integration with advanced features for modern commerce, from secure payments to inventory management.",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    gradients: [
+      "absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]",
+      "absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px]"
+    ],
   },
   {
-    title: "CMS Development",
+    title: { first: "CMS", second: "Development" },
     description: "Expert development using leading content management systems like WordPress, Shopify, and Webflow. Create powerful, customizable websites that are easy to manage and scale with your business needs.",
     image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    gradients: [
+      "absolute top-0 left-1/4 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px]",
+      "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px]"
+    ],
   }
 ];
 
 export default function ServicesShowcase() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const containers = document.querySelectorAll('.service-card');
-    
-    containers.forEach(container => {
-      const handleMouseMove = (e: MouseEvent) => {
-        const rect = container.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        
-        container.style.setProperty('--mouse-x', `${x}%`);
-        container.style.setProperty('--mouse-y', `${y}%`);
-      };
-
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    });
-  }, []);
-
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden bg-[#0A0A0A]">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
         {/* Main gradient line */}
@@ -55,83 +47,88 @@ export default function ServicesShowcase() {
         {/* Very subtle spread */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
-      {/* Background Gradients */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] opacity-30" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] opacity-30" />
-      </div>
+      {services.map((service, index) => (
+        <div key={service.title.first} className="relative mb-32 last:mb-0">
+          {/* Background glows - Following the About Preview pattern */}
+          <div className="absolute inset-0">
+            {index === 0 && (
+              <>
+                <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+              </>
+            )}
+            {index === 1 && (
+              <>
+                <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[20%] left-[10%] w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px]" />
+              </>
+            )}
+            {index === 2 && (
+              <>
+                <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px]" />
+              </>
+            )}
+          </div>
 
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center mb-20"
-        >
-          <h2 className="text-2xl md:text-3xl text-primary font-light mb-4">
-            What We Do
-          </h2>
-          <h3 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Digital <span className="text-primary">Power</span> Solutions
-          </h3>
-          <p className="text-lg md:text-xl text-gray-300">
-            Comprehensive web development services engineered for maximum impact
-          </p>
-        </motion.div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+              {/* Content Side */}
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className={`${index % 2 === 1 ? 'md:order-2' : ''}`}
+              >
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                  <span>{service.title.first} </span>
+                  <span className="text-primary">{service.title.second}</span>
+                </h2>
+                <p className="text-lg md:text-xl text-gray-300 mb-8">
+                  {service.description}
+                </p>
+              </motion.div>
 
-        {/* Services Stack */}
-        <div className="max-w-5xl mx-auto space-y-12">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.7,
-                ease: [0.23, 1, 0.32, 1]
-              }}
-              className="service-card relative"
-              ref={containerRef}
-            >
-              <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden p-6 md:p-8">
-                <div className="flex flex-col md:grid md:grid-cols-[1.2fr,1fr] gap-8 items-center">
-                  {/* Image - Now at top on mobile */}
-                  <div className="md:order-2 w-full">
-                    <div className="relative aspect-[16/10] rounded-2xl overflow-hidden">
-                      <img 
-                        src={service.image}
-                        alt={service.title}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+              {/* Image Side */}
+              <motion.div
+                initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className={`relative ${index % 2 === 1 ? 'md:order-1' : ''}`}
+              >
+                <div className="aspect-square relative rounded-2xl overflow-hidden">
+                  <div className="absolute inset-0 border border-white/10 rounded-2xl z-10" />
+                  
+                  <div className="absolute inset-0">
+                    <Image 
+                      src={service.image}
+                      alt={`${service.title.first} ${service.title.second}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent z-[1]" />
+
+                  <div className="absolute bottom-0 left-0 p-8 z-[2]">
+                    <div className="max-w-xs">
+                      <div className="text-xl font-bold text-white mb-2">
+                        {service.title.first} {service.title.second}
+                      </div>
+                      <p className="text-gray-300">
+                        Powered by cutting-edge technology and expertise
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content - Below image on mobile */}
-                  <div className="md:order-1 relative z-10">
-                    <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
-                      {service.title}
-                    </h4>
-                    <p className="text-lg text-gray-300 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Mouse following gradient */}
-                  <div 
-                    className="absolute inset-0 opacity-0 transition-opacity duration-300"
-                    style={{
-                      background: 'radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,208,0,0.15), transparent 50%)'
-                    }}
-                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
     </section>
   );
 }
