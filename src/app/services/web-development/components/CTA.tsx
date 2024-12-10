@@ -9,8 +9,8 @@ export default function CTA() {
     <section className="relative py-32 overflow-hidden ">
       {/* Background glows - fixed positioning to avoid cropping */}
       <div className="fixed inset-0">
-        {/* <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" /> */}
+        <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
 
         {/* Animated gradient overlay */}
         <motion.div

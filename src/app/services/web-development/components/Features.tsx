@@ -44,17 +44,6 @@ export default function Features() {
 
   return (
     <section className="relative py-32">
-      {/* Enhanced section separator */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
-        <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
-      </div>
       {/* Background gradient */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-[500px] " />
@@ -93,14 +82,16 @@ export default function Features() {
               <div className="h-full bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-white/10 overflow-hidden hover:border-primary/20 transition-colors">
               
 
-              <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8">
-  {/* Icon with gradient - Added group-hover rotation */}
+<div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8">
+  {/* Icon with gradient */}
   <div className="flex-shrink-0">
-    <div 
-      className={`bg-gradient-to-br ${feature.gradient} p-4 rounded-2xl text-white/90 transform group-hover:rotate-12 transition-transform duration-300 ease-out`}
+    <motion.div 
+      whileHover={{ rotate: 12 }}
+      transition={{ type: "spring", stiffness: 200, damping: 10 }}
+      className={`bg-gradient-to-br ${feature.gradient} p-4 rounded-2xl text-white/90`}
     >
       {feature.icon}
-    </div>
+    </motion.div>
   </div>
 
   {/* Content */}

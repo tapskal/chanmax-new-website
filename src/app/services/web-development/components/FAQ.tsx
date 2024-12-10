@@ -50,10 +50,10 @@ export default function FAQ() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
       {/* Background glows - adjusted positions */}
-      {/* <div className="fixed inset-0">
+      <div className="fixed inset-0">
         <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
-      </div> */}
+      </div>
 
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto relative z-10 space-y-4">
