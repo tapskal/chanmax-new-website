@@ -28,11 +28,16 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  // Pre-open first tab
-  const [openIndex, setOpenIndex] = useState<number>(0);
+  // Change the type to handle both number and null
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  // Type-safe click handler
+  const handleClick = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section className="relative py-32 overflow-hidden ">
+    <section className="relative py-32 overflow-hidden">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
         {/* Main gradient line */}
@@ -45,10 +50,10 @@ export default function FAQ() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
       {/* Background glows - adjusted positions */}
-      <div className="fixed inset-0">
+      {/* <div className="fixed inset-0">
         <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto relative z-10 space-y-4">
@@ -61,8 +66,10 @@ export default function FAQ() {
               viewport={{ once: true }}
             >
               <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                onClick={() => handleClick(index)}
                 className="w-full text-left"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
                 <div className="group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
                   {/* Question */}
