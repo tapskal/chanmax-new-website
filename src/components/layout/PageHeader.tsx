@@ -40,7 +40,7 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[80vh] md:min-h-[80vh] lg:h-[calc(100vh+80px)] flex items-center justify-center bg-[#0A0A0A] overflow-hidden"
+      className="relative min-h-[80vh] md:min-h-[80vh] lg:h-[calc(100vh+70px)] flex items-center justify-center bg-[#0A0A0A] overflow-hidden"
     >
       {/* Background Effect */}
       {/* <div className="absolute inset-0">
