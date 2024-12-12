@@ -74,11 +74,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden pt-24 pb-12 bg-[#0A0A0A]">
-      <div className="mx-auto px-4">
+    <section className="relative min-h-screen w-full overflow-hidden  bg-[#0A0A0A]">
+      <div className="mx-auto ">
         <div
           ref={containerRef}
-          className="relative h-[87vh] rounded-[1.2rem] p-10 md:px-10 flex items-center justify-center overflow-hidden bg-white/5 backdrop-blur-lg border border-white/5"
+          className="relative h-[100vh]  p-10 md:px-10 flex items-center justify-center overflow-hidden bg-white/5 backdrop-blur-lg border border-white/5"
         >
           {/* Spotlight Effect */}
           <div 
@@ -105,7 +105,7 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-2xl md:text-3xl lg:text-4xl font-thin text-white mb-2">
-                Growing more faster, with your
+                Growing faster is easier , with your
               </h1>
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6">
                 <span className="text-primary">Business</span> Powerhouse

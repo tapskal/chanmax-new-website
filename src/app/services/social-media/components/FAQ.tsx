@@ -1,3 +1,4 @@
+// src/app/services/social-media/components/FAQ.tsx
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,53 +7,47 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: "What's your web development process?",
-    answer: "Our power-charged development process includes discovery, planning, design, development, testing, and launch phases. We maintain transparent communication throughout to ensure your vision is perfectly executed.",
+    question: "How do you create engaging social media content?",
+    answer: "We develop platform-specific content strategies that combine trending topics, audience insights, and brand voice. Our approach includes creating a mix of educational, entertaining, and promotional content, utilizing various formats like images, videos, stories, and reels to maximize engagement.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(255,208,0,0.1), transparent 70%)"
   },
   {
-    question: "How long does it take to complete a website?",
-    answer: "Project timelines vary based on complexity. A basic website might take 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
+    question: "Which social media platforms do you work with?",
+    answer: "We manage all major social platforms including Instagram, Facebook, LinkedIn, Twitter, TikTok, and Pinterest. We help you identify and focus on the platforms where your target audience is most active and engaged.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1), transparent 70%)"
   },
   {
-    question: "Do you provide website maintenance?",
-    answer: "Yes! We offer comprehensive maintenance packages to keep your website running at peak performance, including updates, security patches, and performance optimization.",
+    question: "How do you measure social media success?",
+    answer: "We track key metrics including engagement rates, follower growth, reach, impressions, click-through rates, and conversions. Our comprehensive analytics provide insights into content performance, audience behavior, and ROI across all platforms.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.1), transparent 70%)"
   },
   {
-    question: "Will my website be mobile-responsive?",
-    answer: "Absolutely! All our websites are built with a mobile-first approach, ensuring perfect performance across all devices and screen sizes.",
+    question: "What's included in your community management service?",
+    answer: "Our community management service includes daily monitoring and engagement, responding to comments and messages, proactive community building, crisis management, and maintaining brand voice across all interactions. We ensure timely and meaningful engagement with your audience.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.1), transparent 70%)"
   }
 ];
 
 export default function FAQ() {
-  // Change the type to handle both number and null
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // Type-safe click handler
   const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="relative py-32 pb-16 md:pb-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
         <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
         <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
-      {/* Background glows - changed from fixed to absolute */}
-  <div className="absolute inset-0 -z-10"> {/* Added -z-10 */}
-    <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-    <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+
+      {/* Background glows */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -103,7 +98,7 @@ export default function FAQ() {
                     )}
                   </AnimatePresence>
 
-                  {/* Unique hover gradient for each tab */}
+                  {/* Hover gradient */}
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{

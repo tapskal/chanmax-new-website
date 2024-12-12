@@ -1,3 +1,4 @@
+// src/app/services/seo/components/FAQ.tsx
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,53 +7,47 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: "What's your web development process?",
-    answer: "Our power-charged development process includes discovery, planning, design, development, testing, and launch phases. We maintain transparent communication throughout to ensure your vision is perfectly executed.",
+    question: "How long does it take to see SEO results?",
+    answer: "SEO is a long-term strategy that typically shows initial results within 3-6 months. However, significant improvements in rankings and traffic are usually seen after 6-12 months of consistent optimization. We provide regular progress reports to track improvements in rankings, traffic, and conversions.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(255,208,0,0.1), transparent 70%)"
   },
   {
-    question: "How long does it take to complete a website?",
-    answer: "Project timelines vary based on complexity. A basic website might take 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
+    question: "What's included in your technical SEO service?",
+    answer: "Our technical SEO service includes comprehensive site audits, site structure optimization, mobile responsiveness improvements, page speed optimization, XML sitemap management, robots.txt configuration, schema markup implementation, and fixing crawl errors. We ensure your website meets all modern SEO requirements.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1), transparent 70%)"
   },
   {
-    question: "Do you provide website maintenance?",
-    answer: "Yes! We offer comprehensive maintenance packages to keep your website running at peak performance, including updates, security patches, and performance optimization.",
+    question: "How do you approach link building?",
+    answer: "We use white-hat link building strategies including digital PR, content partnerships, guest posting on relevant sites, and broken link building. Our focus is on acquiring high-quality, relevant backlinks that improve your domain authority and search rankings naturally.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.1), transparent 70%)"
   },
   {
-    question: "Will my website be mobile-responsive?",
-    answer: "Absolutely! All our websites are built with a mobile-first approach, ensuring perfect performance across all devices and screen sizes.",
+    question: "Do you provide regular SEO reports?",
+    answer: "Yes, we provide detailed monthly reports covering key metrics like keyword rankings, organic traffic, conversion rates, backlink profile growth, and technical SEO improvements. Our reports include actionable insights and recommendations for continued optimization.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.1), transparent 70%)"
   }
 ];
 
 export default function FAQ() {
-  // Change the type to handle both number and null
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // Type-safe click handler
   const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="relative py-32 pb-16 md:pb-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
         <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
         <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
-      {/* Background glows - changed from fixed to absolute */}
-  <div className="absolute inset-0 -z-10"> {/* Added -z-10 */}
-    <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-    <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+
+      {/* Background glows */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -103,7 +98,7 @@ export default function FAQ() {
                     )}
                   </AnimatePresence>
 
-                  {/* Unique hover gradient for each tab */}
+                  {/* Hover gradient */}
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{

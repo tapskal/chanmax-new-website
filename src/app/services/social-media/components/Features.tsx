@@ -1,41 +1,42 @@
+// src/app/services/social-media/components/Features.tsx
 'use client';
 
 import { motion } from 'framer-motion';
-import { Cpu, Rocket, Zap, LineChart } from 'lucide-react';
+import { Share2, Users, Megaphone, BarChart } from 'lucide-react';
 import { useRef } from 'react';
 
 const features = [
   {
-    icon: <Cpu className="w-8 h-8" />,
-    title: 'High-Performance Solutions',
-    description: 'Lightning-fast load times and seamless user experiences powered by cutting-edge technology.',
+    icon: <Share2 className="w-6 h-6 md:w-8 md:h-8" />,
+    title: 'Strategic Content Creation',
+    description: 'Engaging, platform-optimized content that resonates with your audience and drives meaningful engagement across all social channels.',
     gradient: "from-blue-500 via-purple-500 to-pink-500",
     percentage: "300%",
-    metric: "Faster Load Times"
+    metric: "Engagement Rate"
   },
   {
-    icon: <Rocket className="w-8 h-8" />,
-    title: 'Scalable Architecture',
-    description: 'Future-proof applications designed to grow seamlessly with your business needs.',
+    icon: <Users className="w-6 h-6 md:w-8 md:h-8" />,
+    title: 'Community Management',
+    description: 'Active community engagement and management that builds strong relationships with your audience and increases brand loyalty.',
     gradient: "from-primary via-orange-500 to-red-500",
-    percentage: "200%",
-    metric: "Better Scalability"
+    percentage: "250%",
+    metric: "Audience Growth"
   },
   {
-    icon: <LineChart className="w-8 h-8" />,
-    title: 'Performance Analytics',
-    description: 'Deep insights into your websites performance with real-time monitoring and reports.',
+    icon: <Megaphone className="w-6 h-6 md:w-8 md:h-8" />,
+    title: 'Campaign Management',
+    description: 'Data-driven social media campaigns that increase visibility, drive engagement, and achieve your business objectives.',
     gradient: "from-green-400 via-emerald-500 to-teal-500",
-    percentage: "85%",
-    metric: "Conversion Rate"
+    percentage: "400%",
+    metric: "Reach Growth"
   },
   {
-    icon: <Zap className="w-8 h-8" />,
-    title: 'Rapid Development',
-    description: 'Quick turnaround without compromising on quality using modern development practices.',
+    icon: <BarChart className="w-6 h-6 md:w-8 md:h-8" />,
+    title: 'Social Analytics',
+    description: 'Comprehensive social media analytics and reporting that track performance and provide actionable insights for growth.',
     gradient: "from-indigo-500 via-purple-500 to-pink-500",
-    percentage: "40%",
-    metric: "Faster Delivery"
+    percentage: "200%",
+    metric: "ROI Increase"
   }
 ];
 
@@ -44,19 +45,8 @@ export default function Features() {
 
   return (
     <section className="relative py-16 md:py-32">
-      {/* Enhanced section separator */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
-        <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
-      </div>
       <div className="container mx-auto px-4">
-        {/* Section Header - improved responsive text sizes */}
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,17 +54,17 @@ export default function Features() {
           className="max-w-4xl mx-auto text-center mb-12 md:mb-20"
         >
           <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-light mb-3 md:mb-4">
-            Our Development Approach
+            Our Social Media Approach
           </h2>
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
-            Powering Your <span className="text-primary">Success</span>
+            Powering Your <span className="text-primary">Social Success</span>
           </h3>
           <p className="text-base md:text-lg lg:text-xl text-gray-300">
-            High-voltage solutions engineered for peak performance and scalability
+            Strategic social media solutions that build connections and drive growth
           </p>
         </motion.div>
 
-        {/* Features Stack - improved mobile layout */}
+        {/* Features Stack */}
         <div ref={containerRef} className="max-w-3xl mx-auto space-y-4 md:space-y-6">
           {features.map((feature, index) => (
             <motion.div
@@ -87,14 +77,14 @@ export default function Features() {
             >
               <div className="relative h-full bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-white/10 overflow-hidden transition-all duration-300 hover:border-primary/20">
                 <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 lg:gap-8 relative z-10">
-                  {/* Icon container - better mobile sizing */}
+                  {/* Icon container */}
                   <motion.div 
                     className={`flex-shrink-0 bg-gradient-to-br ${feature.gradient} p-3 md:p-4 rounded-xl md:rounded-2xl text-white/90 transform transition-transform duration-300 group-hover:rotate-12`}
                   >
                     {feature.icon}
                   </motion.div>
 
-                  {/* Content - improved text sizing and spacing */}
+                  {/* Content */}
                   <div className="flex-1">
                     <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-3">
                       {feature.title}

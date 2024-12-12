@@ -1,31 +1,32 @@
+// src/app/services/seo/components/ServiceShowcase.tsx
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image'; // Add this for proper image handling
+import Image from 'next/image';
 
 const services = [
   {
-    title: { first: "Custom", second: "Web Development" },
-    description: "We craft tailored web solutions that perfectly align with your business objectives and user needs. Build scalable, high-performance applications that drive growth and deliver exceptional user experiences.",
-    image: "https://images.pexels.com/photos/3182834/pexels-photo-3182834.jpeg",
+    title: { first: "Technical", second: "Optimization" },
+    description: "Comprehensive technical SEO that enhances your website's search engine visibility through site structure, speed optimization, and mobile responsiveness.",
+    image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
     gradients: [
       "absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]",
       "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]"
     ],
   },
   {
-    title: { first: "E-commerce", second: "Solutions" },
-    description: "Build powerful online stores that drive sales and deliver exceptional shopping experiences. Seamless integration with advanced features for modern commerce, from secure payments to inventory management.",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    title: { first: "Content", second: "Strategy" },
+    description: "Data-driven content strategies that target high-value keywords and create engaging content that ranks well and converts visitors into customers.",
+    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
     gradients: [
       "absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]",
       "absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px]"
     ],
   },
   {
-    title: { first: "CMS", second: "Development" },
-    description: "Expert development using leading content management systems like WordPress, Shopify, and Webflow. Create powerful, customizable websites that are easy to manage and scale with your business needs.",
-    image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg",
+    title: { first: "Authority", second: "Building" },
+    description: "Strategic link building and digital PR that boost your domain authority and improve search rankings through quality backlinks and content partnerships.",
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
     gradients: [
       "absolute top-0 left-1/4 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px]",
       "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px]"
@@ -33,23 +34,19 @@ const services = [
   }
 ];
 
-export default function ServicesShowcase() {
+export default function ServiceShowcase() {
   return (
-    <section className="relative py-32 pb-16 md:pb-32 overflow-hidden bg-[#0A0A0A]">
+    <section className="relative py-32 overflow-hidden bg-[#0A0A0A]">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
         <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
         <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
+
       {services.map((service, index) => (
         <div key={service.title.first} className="relative mb-32 last:mb-0">
-          {/* Background glows - Following the About Preview pattern */}
+          {/* Background glows */}
           <div className="absolute inset-0">
             {index === 0 && (
               <>
@@ -119,7 +116,7 @@ export default function ServicesShowcase() {
                         {service.title.first} {service.title.second}
                       </div>
                       <p className="text-gray-300">
-                        Powered by cutting-edge technology and expertise
+                        Driving organic growth through strategic SEO
                       </p>
                     </div>
                   </div>

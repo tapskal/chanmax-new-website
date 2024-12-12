@@ -1,3 +1,4 @@
+// src/app/services/performance-marketing/components/FAQ.tsx
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,53 +7,47 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: "What's your web development process?",
-    answer: "Our power-charged development process includes discovery, planning, design, development, testing, and launch phases. We maintain transparent communication throughout to ensure your vision is perfectly executed.",
+    question: "What is performance marketing and how does it work?",
+    answer: "Performance marketing is a data-driven marketing strategy where businesses pay for specific actions or results, such as clicks, leads, or sales. We use advanced targeting, analytics, and optimization techniques to maximize your ROI by focusing on measurable outcomes.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(255,208,0,0.1), transparent 70%)"
   },
   {
-    question: "How long does it take to complete a website?",
-    answer: "Project timelines vary based on complexity. A basic website might take 4-6 weeks, while complex web applications can take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
+    question: "How do you measure campaign success?",
+    answer: "We track multiple key performance indicators (KPIs) including ROI, ROAS, conversion rates, click-through rates, and cost per acquisition. Our comprehensive analytics system provides real-time data and detailed reports to measure campaign effectiveness and optimize performance.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1), transparent 70%)"
   },
   {
-    question: "Do you provide website maintenance?",
-    answer: "Yes! We offer comprehensive maintenance packages to keep your website running at peak performance, including updates, security patches, and performance optimization.",
+    question: "What platforms do you use for advertising?",
+    answer: "We utilize a multi-channel approach including Google Ads, Meta Ads (Facebook & Instagram), LinkedIn, TikTok, and other relevant platforms based on your target audience. Each campaign is strategically placed to maximize reach and effectiveness.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(168,85,247,0.1), transparent 70%)"
   },
   {
-    question: "Will my website be mobile-responsive?",
-    answer: "Absolutely! All our websites are built with a mobile-first approach, ensuring perfect performance across all devices and screen sizes.",
+    question: "How long before we see results?",
+    answer: "Initial results can be seen within the first few weeks, but optimal performance is typically achieved after 2-3 months of data collection and optimization. We continuously refine campaigns based on performance data to improve results over time.",
     gradient: "radial-gradient(circle at 50% 50%, rgba(16,185,129,0.1), transparent 70%)"
   }
 ];
 
 export default function FAQ() {
-  // Change the type to handle both number and null
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // Type-safe click handler
   const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="relative py-32 pb-16 md:pb-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden">
       {/* Enhanced section separator */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        {/* Main gradient line */}
         <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        
-        {/* Soft glow effect */}
         <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        
-        {/* Very subtle spread */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
       </div>
-      {/* Background glows - changed from fixed to absolute */}
-  <div className="absolute inset-0 -z-10"> {/* Added -z-10 */}
-    <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-    <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+
+      {/* Background glows */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[30%] translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-4">
@@ -103,7 +98,7 @@ export default function FAQ() {
                     )}
                   </AnimatePresence>
 
-                  {/* Unique hover gradient for each tab */}
+                  {/* Hover gradient */}
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{

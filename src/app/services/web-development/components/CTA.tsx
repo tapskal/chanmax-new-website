@@ -7,6 +7,17 @@ import CustomButton from '@/components/ui/CustomButton';
 export default function CTA() {
   return (
     <section className="relative py-32 overflow-hidden ">
+      {/* Enhanced section separator */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
+        {/* Main gradient line */}
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        
+        {/* Soft glow effect */}
+        <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
+        
+        {/* Very subtle spread */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
+      </div>
      {/* Background glows - changed from fixed to absolute */}
   <div className="absolute inset-0 -z-10"> {/* Added -z-10 */}
     <div className="absolute top-[30%] -translate-y-1/2 left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
