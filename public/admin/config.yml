@@ -2,13 +2,10 @@ backend:
   name: github
   repo: chanmaxsolutions/chanmax-new-website
   branch: main
-  client_id: Ov23liS2IKBTXEUKVZV4  # Your GitHub OAuth client ID
-  base_url: https://api.netlify.com  # Keep this for Netlify authentication
+  client_id: Ov23liS2IKBTXEUKVZV4
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
-
-local_backend: true
 
 collections:
   - name: "case-studies"
