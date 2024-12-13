@@ -78,7 +78,7 @@ export default function Hero() {
       <div className="mx-auto ">
         <div
           ref={containerRef}
-          className="relative h-[100vh]  p-10 md:px-10 flex items-center justify-center overflow-hidden bg-white/5 backdrop-blur-lg border border-white/5"
+          className="relative h-[100vh]  p-10 md:px-10 flex items-center justify-center overflow-hidden "
         >
           {/* Spotlight Effect */}
           <div 
