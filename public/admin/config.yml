@@ -31,3 +31,5 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Content", name: "body", widget: "markdown"}
+
+      
