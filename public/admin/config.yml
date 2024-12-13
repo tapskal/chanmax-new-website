@@ -2,16 +2,20 @@ backend:
   name: github
   repo: chanmaxsolutions/chanmax-new-website
   branch: main
-  client_id: Ov23liS2IKBTXEUKVZV4
-  ccept_roles:
+  base_url: https://chanmax-new-website.vercel.app
+  auth_endpoint: api/auth
+  auth_scope: repo
+  accept_roles:
     - admin
     - editor
   allowed_users:
-    - chanmaxsolutions@gmail.com
-    - prashankhan63@gmail.com 
+    - chanmaxsolutions
+    - prashankhan63   # Add your other GitHub username here
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
+
+# ... rest of your collections
 
 local_backend: true
 
