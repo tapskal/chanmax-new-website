@@ -2,20 +2,11 @@ backend:
   name: github
   repo: chanmaxsolutions/chanmax-new-website
   branch: main
-  base_url: https://chanmax-new-website.vercel.app
-  auth_endpoint: api/auth
-  auth_scope: repo
-  accept_roles:
-    - admin
-    - editor
-  allowed_users:
-    - chanmaxsolutions
-    - prashankhan63   # Add your other GitHub username here
+  client_id: Ov23liS2IKBTXEUKVZV4  # Your GitHub OAuth client ID
+  base_url: https://api.netlify.com  # Keep this for Netlify authentication
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
-
-# ... rest of your collections
 
 local_backend: true
 
