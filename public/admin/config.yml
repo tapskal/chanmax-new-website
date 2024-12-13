@@ -2,6 +2,8 @@ backend:
   name: github
   repo: chanmaxsolutions/chanmax-new-website
   branch: main
+  base_url: https://chanmax-new-website.vercel.app
+  site_domain: chanmax-new-website.vercel.app
   client_id: Ov23liS2IKBTXEUKVZV4
 
 media_folder: "public/uploads"
