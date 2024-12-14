@@ -13,17 +13,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Function to check if the current path is admin
-  const isAdminPage = children?.toString().includes('admin');
-
   return (
     <html lang="en">
       <body>
         <Navigation />
-          <main>
-            {children}
-          </main>
-          <Footer />
+        <main>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
