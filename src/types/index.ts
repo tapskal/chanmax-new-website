@@ -1,17 +1,16 @@
+// src/types/index.ts
 export interface BlogPost {
-    id: string;
-    Title: string;
-    Slug: string;
-    Author: string;
-    Date: string;
-    Content: string;
-    'Featured Image'?: Array<{
-      id: string;
-      width: number;
-      height: number;
-      url: string;
-      filename: string;
-      type: string;
-    }>;
-    Tags?: string[];
-  }
+  id: string;
+  Title: string;
+  Slug: string;
+  Content: string;
+  Author: string;
+  Date: string;
+  Tags?: string[];
+  Excerpt?: string;  // Added Excerpt field
+  'Featured Image'?: Array<{
+    url: string;
+    filename: string;
+    type: string;
+  }>;
+}
