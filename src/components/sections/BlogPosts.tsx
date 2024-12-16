@@ -7,7 +7,7 @@ import { BlogPost } from '@/types';
 
 export default function BlogPosts({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  sm:px-6 lg:px-0">
       {posts.map((post) => (
         <Link href={`/blog/${post.Slug}`} key={post.id}>
           <motion.div
@@ -37,7 +37,7 @@ export default function BlogPosts({ posts }: { posts: BlogPost[] }) {
 
             {/* Blog Content */}
             <div className="space-y-3">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white group-hover:text-primary transition-colors">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white group-hover:text-primary transition-colors">
                 {post.Title}
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-400 line-clamp-3">
