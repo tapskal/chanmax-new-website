@@ -37,3 +37,40 @@ export async function getBlogPost(slug: string) {
     return null;
   }
 }
+
+
+// src/lib/airtable.ts
+// ... existing imports and setup ...
+
+export async function getReferences() {
+  try {
+    const records = await base('References').select().all();
+    return records.map(record => ({
+      id: record.id,
+      ...record.fields
+    }));
+  } catch (error) {
+    console.error('Error fetching references:', error);
+    return [];
+  }
+}
+
+export async function getReference(slug: string) {
+  try {
+    const records = await base('References')
+      .select({
+        filterByFormula: `{Slug} = '${slug}'`
+      })
+      .firstPage();
+
+    if (!records?.length) return null;
+
+    return {
+      id: records[0].id,
+      ...records[0].fields
+    };
+  } catch (error) {
+    console.error('Error fetching reference:', error);
+    return null;
+  }
+}

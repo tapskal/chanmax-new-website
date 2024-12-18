@@ -14,3 +14,25 @@ export interface BlogPost {
     type: string;
   }>;
 }
+
+// src/types/index.ts
+export interface Reference {
+  id: string;
+  Title: string;
+  Slug: string;
+  Client: string;
+  Industry: string;
+  Challenge: string;
+  Solution: string;
+  Results: string;
+  Excerpt?: string;  // Added Excerpt field
+  Metrics?: {
+    value: string;
+    label: string;
+  }[];
+  'Featured Image'?: Array<{
+    url: string;
+    filename: string;
+    type: string;
+  }>;
+}
