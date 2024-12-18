@@ -69,13 +69,13 @@ const navItems = [
         icon: <ChevronRight className="w-4 h-4 text-primary" />,
         title: 'Tools',
         description: 'Essential tools we use',
-        href: '/resources/tools'
+        href: '/tools'
       },
       {
         icon: <ChevronRight className="w-4 h-4 text-primary" />,
         title: 'Blog',
         description: 'Latest insights and updates',
-        href: '/resources/blog'
+        href: '/blog'
       }
     ]
   }
