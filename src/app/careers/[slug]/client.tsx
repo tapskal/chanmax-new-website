@@ -37,7 +37,7 @@ export default function CareerDetailClient({
 
   return (
     <main className="bg-[#0A0A0A] min-h-screen">
-      <div className="pt-[100px] md:pt-[80px] px-6 flex items-center justify-center">
+      <div className="pt-[120px] md:pt-[150px] pb-[100px] px-6 flex items-center justify-center">
         <div className='container'>
           <div className="mx-auto max-w-5xl">
             {/* Header */}
