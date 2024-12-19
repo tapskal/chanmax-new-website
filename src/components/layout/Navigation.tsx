@@ -45,25 +45,25 @@ const navItems = [
   },
   {
     name: 'Company',
-    href: '/company',
+    href: '#',
     submenu: [
       {
         icon: <ChevronRight className="w-4 h-4 text-primary" />,
         title: 'About',
         description: 'Our story and mission',
-        href: '/company/about'
+        href: '/about'
       },
       {
         icon: <ChevronRight className="w-4 h-4 text-primary" />,
-        title: 'Career',
+        title: 'Careers',
         description: 'Join our growing team',
-        href: '/company/career'
+        href: '/careers'
       }
     ]
   },
   {
     name: 'Resources',
-    href: '/resources',
+    href: '#',
     submenu: [
       {
         icon: <ChevronRight className="w-4 h-4 text-primary" />,
