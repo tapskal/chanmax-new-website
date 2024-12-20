@@ -4,113 +4,107 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const services = [
+const timelineEvents = [
   {
-    title: { first: "Experience", second: "& Expertise" },
-    description: "Our team brings years of industry experience and deep expertise in digital solutions, ensuring high-quality results for every project.",
-    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
-    gradients: [
-      "absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]",
-      "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]"
-    ],
+    year: "2018",
+    title: "The Beginning",
+    description: "Chanmax began with a vision to bridge the gap between technology and business growth, offering comprehensive digital solutions from web development to strategic marketing.",
   },
   {
-    title: { first: "Innovation", second: "& Technology" },
-    description: "We stay ahead of the curve with cutting-edge technologies and innovative approaches to deliver modern digital solutions.",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-    gradients: [
-      "absolute top-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]",
-      "absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px]"
-    ],
+    year: "2018-2020",
+    title: "Early Growth",
+    description: "Our dedication to delivering both technical excellence and measurable business results led to rapid growth through client referrals, establishing our reputation as a complete digital partner.",
   },
   {
-    title: { first: "Results", second: "& Growth" },
-    description: "Our focus on delivering measurable results has helped numerous businesses achieve significant growth and success.",
-    image: "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg",
-    gradients: [
-      "absolute top-0 left-1/4 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px]",
-      "absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[120px]"
-    ],
-  }
+    year: "2020",
+    title: "The Turning Point",
+    description: "Participation in Uki's Coding Accelerator Program marked a pivotal moment, expanding our capabilities to offer more sophisticated technical solutions while strengthening our digital marketing expertise.",
+  },
+  {
+    year: "2021",
+    title: "Business Evolution",
+    description: "Transformed into a full-service digital solutions provider, combining cutting-edge development capabilities with data-driven marketing strategies to deliver comprehensive business growth solutions.",
+  },
+  {
+    year: "Today",
+    title: "Global Impact",
+    description: "Now serving businesses across 10+ countries, we've become a trusted partner for both technical innovation and digital growth strategies, helping businesses thrive in the digital age.",
+  },
 ];
 
 export default function AboutShowcase() {
   return (
     <section className="relative py-32 overflow-hidden bg-[#0A0A0A]">
-      {/* Enhanced section separator */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[80%] md:w-[60%] lg:w-[40%]">
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-xl -mt-4" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl" />
-      </div>
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-[800px] mx-auto text-center mb-20"
+        >
+          <h2 className="text-[32px] font-light text-primary mb-4">
+            How it all Started?
+          </h2>
+          <h3 className="text-[56px] font-semibold text-white mb-6">
+            A Vision of Digital <span className="text-primary">Excellence</span>
+          </h3>
+          <p className="text-[20px] leading-relaxed text-gray-300">
+            From a passionate start to a global digital powerhouse, helping businesses succeed through technology and marketing excellence.
+          </p>
+        </motion.div>
 
-      {services.map((service, index) => (
-        <div key={service.title.first} className="relative mb-32 last:mb-0">
-          {/* Background glows */}
-          <div className="absolute inset-0">
-            {service.gradients.map((gradient, i) => (
-              <div key={i} className={gradient} />
-            ))}
+        {/* Image Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-20"
+        >
+          <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 border border-white/10 rounded-2xl z-10" />
+            <Image 
+              src="https://chanmax.io/wp-content/uploads/2023/12/IMG_0605_jpg-scaled.jpg"
+              alt="Chanmax Journey"
+              fill
+              className="object-cover object-right-top"
+              priority
+            />
           </div>
+        </motion.div>
 
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-              {/* Content Side */}
+        {/* Timeline Section */}
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            {timelineEvents.map((event, index) => (
               <motion.div
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={event.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className={`${index % 2 === 1 ? 'md:order-2' : ''}`}
+                transition={{ delay: index * 0.1 }}
+                className="relative pl-8 border-l border-white/10"
               >
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                  <span>{service.title.first} </span>
-                  <span className="text-primary">{service.title.second}</span>
-                </h2>
-                <p className="text-lg md:text-xl text-gray-300 mb-8">
-                  {service.description}
+                <div className="absolute left-0 top-0 w-3 h-3 -translate-x-[7px] rounded-full bg-primary" />
+                <div className="text-[20px] text-primary font-semibold mb-2">
+                  {event.year}
+                </div>
+                <h3 className="text-[32px] font-semibold text-white mb-4">
+                  {event.title}
+                </h3>
+                <p className="text-[20px] leading-relaxed text-gray-300">
+                  {event.description}
                 </p>
               </motion.div>
-
-              {/* Image Side */}
-              <motion.div
-                initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className={`relative ${index % 2 === 1 ? 'md:order-1' : ''}`}
-              >
-                <div className="aspect-square relative rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 border border-white/10 rounded-2xl z-10" />
-                  
-                  <div className="absolute inset-0">
-                    <Image 
-                      src={service.image}
-                      alt={`${service.title.first} ${service.title.second}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent z-[1]" />
-
-                  <div className="absolute bottom-0 left-0 p-8 z-[2]">
-                    <div className="max-w-xs">
-                      <div className="text-xl font-bold text-white mb-2">
-                        {service.title.first} {service.title.second}
-                      </div>
-                      <p className="text-gray-300">
-                        Delivering excellence through innovation
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </div>
-      ))}
+      </div>
     </section>
   );
 }

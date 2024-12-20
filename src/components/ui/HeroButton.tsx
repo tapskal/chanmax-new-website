@@ -11,7 +11,7 @@ interface HeroButtonProps {
 
 const HeroButton = ({ children, variant = 'primary', icon }: HeroButtonProps) => (
   <button 
-    className={`flex items-center px-6 py-3 rounded-full text-base font-medium transition-all
+    className={`flex items-center px-9 py-3 rounded-full text-base font-medium transition-all
     ${variant === 'primary' 
       ? 'bg-primary text-black hover:bg-primary-light' 
       : 'bg-white text-black hover:bg-white/90'}`}

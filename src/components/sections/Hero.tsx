@@ -88,7 +88,7 @@ export default function Hero() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               maskImage: 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), black 100px, transparent 160px)',
-              WebkitMaskImage: 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), black 100px, transparent 160px)',
+              WebkitMaskImage: 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), black 100px, transparent 260px)',
               opacity: 0,
             }}
           />
@@ -98,33 +98,45 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
           </div>
 
-          <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <div className="relative z-10  mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.1 }}
             >
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-thin text-white mb-2">
-                Growing faster is easier , with your
-              </h1>
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6">
-                <span className="text-primary">Business</span> Powerhouse
+               <h1 className="text-2xl md:text-3xl lg:text-4xl font-thin text-white mb-2">
+                Growing faster made easy
+              </h1> 
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 tracking-tighter">
+                <span className="text-primary">Business</span> Catalyst
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-300 font-light mb-8 max-w-2xl mx-auto">
+              <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.1, delay: 0.1}}
+            >
+
+              <p className="text-lg md:text-2xl text-gray-300 font-thin mb-8 max-w-2xl mx-auto">
                 We craft innovative digital solutions that drive business growth
                 through cutting-edge web development and strategic marketing.
-              </p>
+              </p> 
+              </motion.div>
 
+              <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.1, delay: 0.2}}
+            >
               <div className="flex flex-wrap gap-4 justify-center">
-                <HeroButton variant="primary" icon={<ArrowRight className="w-4 h-4 text-primary" />}>
+                <HeroButton variant="secondary" icon={<ArrowRight className="w-4 h-4 text-primary" />}>
                   Get Started
                 </HeroButton>
-                <HeroButton variant="secondary" icon={<ArrowRight className="w-4 h-4 text-white" />}>
+                {/* <HeroButton variant="secondary" icon={<ArrowRight className="w-4 h-4 text-white" />}>
                   View Our Work
-                </HeroButton>
-              </div>
-
+                </HeroButton>  */}
+              </div> 
+              </motion.div>
               <motion.div
                 ref={statsRef}
                 initial={{ opacity: 0 }}
@@ -132,7 +144,7 @@ export default function Hero() {
                 transition={{ duration: 0.5 }}
                 className="grid grid-cols-3 gap-8 mt-12"
               >
-                <div className="text-center">
+                {/* <div className="text-center">
                   <div className="text-4xl font-bold text-white mb-2">{projectCount}+</div>
                   <div className="text-gray-400">Projects Completed</div>
                 </div>
@@ -143,7 +155,7 @@ export default function Hero() {
                 <div className="text-center">
                   <div className="text-4xl font-bold text-white mb-2">{experienceCount}+</div>
                   <div className="text-gray-400">Years Experience</div>
-                </div>
+                </div> */}
               </motion.div>
             </motion.div>
           </div>

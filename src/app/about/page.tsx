@@ -11,8 +11,9 @@ export default function AboutPage() {
         title={<>About <span className="text-primary">Us</span></>}
         subtitle="Helping businesses enhance their online presence and achieve their goals through digital excellence"
       />
+
+<AboutShowcase />
       <Features />
-      <AboutShowcase />
       <CTA />
     </main>
   );

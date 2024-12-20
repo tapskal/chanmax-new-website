@@ -67,9 +67,9 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.1 }}
           >
-            <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-6 md:mb-8">
+            <h1 className="text-6xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6 md:mb-8 tracking-tighter">
               {title}
             </h1>
           </motion.div>
@@ -78,10 +78,10 @@ export default function PageHeader({ title, subtitle }: PageHeaderProps) {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.1, delay: 0.2 }}
             className="relative"
           >
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 px-4 inline-block max-w-3xl">
+            <p className="text-lg sm:text-xl md:text-2xl font-thin lg:text-3xl text-gray-300 px-4 inline-block max-w-3xl">
               {subtitle}
             </p>
           </motion.div>
