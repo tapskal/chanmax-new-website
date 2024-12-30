@@ -2,7 +2,14 @@
   "extends": [
     "next",
     "next/core-web-vitals"
+<<<<<<< HEAD
   ],
+=======
+  ]
+}
+{
+  "extends": ["next/core-web-vitals"],
+>>>>>>> ee7adb1257a496009c9e5ab4074d965643a7888a
   "rules": {
     "@next/next/no-img-element": "warn",
     "react/no-unescaped-entities": "off"
